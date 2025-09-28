@@ -1,0 +1,44 @@
+---
+title: "Week 5 Matrix"
+output: html_document
+date: "2025-09-28"
+---
+
+```{r setup, include=FALSE}
+
+#  1 - Create Matrices
+
+A <- matrix(1:100,  nrow = 10)
+B <- matrix(1:1000, nrow = 10)
+
+# # 2 - Inspect Dimensions 
+
+dim(A) 
+dim(B) 
+
+dim(A)[1] == dim(A)[2]  
+dim(B)[1] == dim(B)[2]
+
+#  3 Compute Inverse and Determinant
+
+# For A
+
+invA <- tryCatch(solve(A), error = function(e) NA)
+detA <- tryCatch(det(A),   error = function(e) NA)
+
+cat("A:\n")
+print(invA)
+cat("det(A):", detA, "\n\n")
+
+# For B, use tryCatch to capture errors
+
+invB <- tryCatch(solve(B), error = function(e) e)
+detB <- tryCatch(det(B),   error = function(e) e)
+
+cat("B:\n")
+print(invB)
+cat("det(B):")
+
+
+
+```
