@@ -1,0 +1,44 @@
+---
+title: "Week 7 Assignment"
+output: html_document
+date: "2025-10-13"
+---
+
+```{r setup, include=FALSE}
+
+# Loading in Data 
+df <- data.frame(USArrests)
+head(df)
+str(df)
+
+# Testing Generic Functions
+plot(USArrests$Murder, USArrests$Assault,
+     main = "Scatterplot of Murder vs Assault (USArrests)",
+     xlab = "Murder (per 100,000)",
+     ylab = "Assault (per 100,000)",
+     pch = 19,          # solid circles
+     col = "steelblue") # color
+
+methods("plot")
+# Exploring S3 and S4
+
+s3_obj <- list(name = "Kevin Durant", age = 37, position = "SF" )
+class(s3_obj) <- "s3Player"
+methods("print")
+
+setClass("s4Player",
+         slots = c(name = "character", age = "numeric", position = "character"))
+s4_obj <- new("s4Player", name = "Lebron", age = 40, position = "SF")
+methods(class = "s4Player")
+
+print(s3_obj)
+print(s4_obj)
+
+# Testing if an object is s3 or s4
+isS4(s3_obj)
+typeof(s3_obj)
+isS4(s4_obj)
+typeof(s4_obj)
+
+
+```
