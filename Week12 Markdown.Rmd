@@ -1,0 +1,39 @@
+---
+title: "Week 12 R"
+output: html_document
+date: "2025-11-17"
+---
+
+R Markdown is a tool that is imbedded in R that allows for the intersection of code, text, and outputs into a single document for easier reading. 
+
+R Markdown is very helpful for analysis and provide narrative text to help explain what a document is presenting. 
+
+# Math Examples
+Inline math example: $\alpha + \beta = \gamma$.
+
+
+
+```{r}
+
+library(ggplot2)
+
+```
+
+
+```{r}
+
+mtcars$model <- rownames(mtcars)
+
+ggplot(mtcars, aes(x = reorder(model, hp), y = hp)) +
+  geom_col() +
+  coord_flip() +
+  theme_minimal() +
+  labs(title = "Horsepower by Car Model",
+       x = "Car Model",
+       y = "Horsepower")
+
+
+```
+
+
+Working with R Markdown is very different from writing plain reports. Knitting the document also provides a clean, styled output without manual formatting, making it ideal for data analysis workflows.
